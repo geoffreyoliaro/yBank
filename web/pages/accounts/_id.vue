@@ -86,8 +86,8 @@ export default {
       show: false,
       payment: {},
 
-      account: [1,2,3,4],
-      transactions: [{ "account":"1","amount":"500"}],
+      account: [],
+      transactions: [],
 
       loading: true
     };
