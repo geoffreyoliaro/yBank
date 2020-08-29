@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\accounts;
 
+use App\Account;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AccountsController extends Controller
 {
@@ -14,24 +16,29 @@ class AccountsController extends Controller
 
     public function about(){
         return view('about');
+    }    
+
+    public function createAccount(Request $request){
+        $this->validate($request,[
+            'name'=>'required|string|unique:accounts',
+            'balance'=>'required'
+        ]);
+
+        
+        $account = new Account;
+        $account->name = $request->input('name');
+        $account->balance = $request->input('balance');
+        $account->save();  
+
+        return view('/account_details')->with('account', $account);
+        
+        // DB::table('accounts')
+        //     ->where('name', $request->name)
+        //     ->get()
+
+
+        
+        // return response()->json($account);
+        
     }
-
-    public function create(Request $request){
-      $account = $request->validate($request,[
-            'name'=>'required|String',
-            'balance'=>'required|Integer'            
-        ]);
-        $account = DB::table('accounts')->insert([
-            'name' => $request->name,
-            'balance' => $request->balance
-        ]);
-
-      
-        return response([
-            'status'=>1,
-            'payload'=>$account,
-            'message'=>'Account created Successfuly'
-        ]);
-    }
-
 }

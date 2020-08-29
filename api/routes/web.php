@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'accounts\AccountsController@index');
 Route::get('/about', 'accounts\AccountsController@about');
+Route::post('/accounts', 'accounts\AccountsController@createAccount');
+
 
 
 

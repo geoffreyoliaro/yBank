@@ -19,7 +19,6 @@ class AccountsController extends Controller
         $account = DB::table('accounts')
                     ->where('name',$request->name)
                     ->exists();
-
         if($account === true){
             return response()->json(["message"=>"account already exists please login"],400);
         }
