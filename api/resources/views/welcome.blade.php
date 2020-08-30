@@ -24,9 +24,10 @@
                   </div>  
                   
                   <button class="btn btn-lg btn-register btn-block text-uppercase" type="submit">Register</button>
-                  <hr class="my-4">                                                      
+                  <hr class="my-4">                                                                        
                 </form>
-                <button class="btn btn-lg btn-register form-register btn-block text-uppercase"><a href="http://localhost:3000/"> </a> Already have an account ?</button>
+                <a href="http://localhost:3000/"><button class="btn btn-register form-register btn-block text-uppercase"> Already have an account ?</button> </a>
+                
                 
               </div>
             </div>

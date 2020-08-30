@@ -15,8 +15,11 @@
               }}{{ account.balance }}</code
             >
           </div>
+          <div class="text-center" v-if="transactionLimit">
+            Account Balance Exceeded Try Again.
+          </div>
         </b-card-text>
-        <b-button size="sm" variant="success" @click="show = !show"
+        <b-button size="sm" variant="success" @click="show = !show, transactionLimit = false"
           >New payment</b-button
         >
 
@@ -88,7 +91,7 @@ export default Vue.extend({
 
       account: [],
       transactions: [],
-
+      transactionLimit: false,
       loading: true
     };
   },
@@ -121,7 +124,6 @@ export default Vue.extend({
         var transactions = [];
         for (let i = 0; i < that.transactions.length; i++) {
           that.transactions[i].amount =
-            console.log(that.account)
             (that.account.currency === "usd" ? "$" : "€") +
             that.transactions[i].amount;
 
@@ -145,11 +147,15 @@ export default Vue.extend({
 
       event.preventDefault();
 
-      axios.post(
-        `http://localhost:8000/api/accounts/${this.$route.params.id}/transactions`,
+      axios
+        .post(
+          `http://localhost:8000/api/accounts/${this.$route.params.id}/transactions`,
 
-        that.payment
-      );
+          that.payment
+        )
+        .catch(() => {
+          that.transactionLimit = true;
+        });
 
       that.payment = {};
       that.show = false;
