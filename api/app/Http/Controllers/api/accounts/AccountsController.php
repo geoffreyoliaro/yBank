@@ -46,20 +46,29 @@ class AccountsController extends Controller
 
         return $transactions;
     }
-
     
-        public function commitTransaction (Request $request, $id) {
-            $valid = validator($request->only('to', 'amount','details'),[
-                'to'=>'required',
-                'amount'=>'required',
-                'details'=>'required|String'            
-            ]); 
-            if($valid->fails()){
-                return response()->json(["errors"=> $valid->errors()->all()],400);
-            }
-            $to = $request->input('to');
-            $amount = $request->input('amount');
-            $details = $request->input('details');
+    public function commitTransaction (Request $request, $id) {
+        $valid = validator($request->only('to', 'amount','details'),[
+            'to'=>'required',
+            'amount'=>'required',
+            'details'=>'required|String'            
+        ]); 
+        if($valid->fails()){
+            return response()->json(["errors"=> $valid->errors()->all()],400);
+        }
+        $balance = DB::table('accounts')
+            ->where("id",$id)
+            ->get('balance');
+
+        $to = $request->input('to');
+        $amount = $request->input('amount');
+        $details = $request->input('details');
+            
+        
+        if($amount > $balance ){
+            return response()->json(["message"=> "Insufficient Account Balance"],400);
+        }    
+        else{
     
             $account = DB::table('accounts')
                 ->whereRaw("id=$id")
@@ -82,6 +91,7 @@ class AccountsController extends Controller
                 'payload'=>$transaction,
                 'message'=>'Transaction Successful'
             ]);
+        }
         }
     
 }

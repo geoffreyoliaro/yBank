@@ -121,6 +121,7 @@ export default Vue.extend({
         var transactions = [];
         for (let i = 0; i < that.transactions.length; i++) {
           that.transactions[i].amount =
+            console.log(that.account)
             (that.account.currency === "usd" ? "$" : "€") +
             that.transactions[i].amount;
 

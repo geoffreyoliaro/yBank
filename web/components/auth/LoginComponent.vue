@@ -19,6 +19,9 @@
         <b-button nuxt-link :to="'/accounts/' + accountID" variant="primary"
           >Login</b-button
         >
+        <b-button variant="primary" href="http://localhost:8000/"
+          >Register</b-button
+        >
       </b-form>
     </div>
     </div>

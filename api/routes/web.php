@@ -21,11 +21,3 @@ Route::post('/accounts', 'accounts\AccountsController@createAccount');
 
 
 
-
-
-    Route::get('currencies', function () {
-        $account = DB::table('currencies')
-            ->get();
-
-        return $account;
-    });

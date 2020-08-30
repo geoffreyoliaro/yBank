@@ -28,6 +28,7 @@ class AccountsController extends Controller
         $account = new Account;
         $account->name = $request->input('name');
         $account->balance = $request->input('balance');
+        $account->currency = 'usd';
         $account->save();  
 
         return view('/account_details')->with('account', $account);
