@@ -8,7 +8,6 @@
         <p class="lead font-weight-bolder">Account ID: {{$account->id}}</p>
         <p class="lead font-weight-bolder">Account Balance {{$account->balance}}</p>
 
-        <button class="btn btn-lg btn-register btn-block text-uppercase" type="submit">Login</button>
-    
+        <button class="btn btn-lg btn-register btn-block text-uppercase" type="submit">Login</button>    
     </div>        
 @endsection

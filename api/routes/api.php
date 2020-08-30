@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::post('/accounts', 'api\accounts\AccountsController@create');
+Route::get('accounts/{id}', 'api\accounts\AccountsController@getAccountById');
+Route::get('accounts/{id}/transactions', 'api\accounts\AccountsController@getTransactionsById');
+Route::post('accounts/{id}/transactions', 'api\accounts\AccountsController@commitTransaction');
