@@ -31,7 +31,7 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
-This is the result
+This is the result after running npm install then running npm run dev
 
 ![yBankWeb](https://user-images.githubusercontent.com/36531897/91686238-6e1f7100-eb65-11ea-9076-3e55859950ca.PNG)
 
