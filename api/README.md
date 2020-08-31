@@ -9,13 +9,13 @@ Geoffrey Oliaro
 This is a simple Laravel Back-end that generates the relevant restfull APIs for the yBank front end. To generate the APIs the application uses passport a composer package. The yBank Back end hosts the registration interface for the yBank front end
 
 ## Requires: 
-"php": "^7.2.5",
-"fideloper/proxy": "^4.2",
-"fruitcake/laravel-cors": "^1.0",
-"guzzlehttp/guzzle": "^6.3",
-"laravel/framework": "^7.0",
-"laravel/passport": "^9.3",
-"laravel/tinker": "^2.0"
+* "php": "^7.2.5",
+* "fideloper/proxy": "^4.2",
+* "fruitcake/laravel-cors": "^1.0",
+* "guzzlehttp/guzzle": "^6.3",
+* "laravel/framework": "^7.0",
+* "laravel/passport": "^9.3",
+* "laravel/tinker": "^2.0"
 
 
 ## Build Setup
