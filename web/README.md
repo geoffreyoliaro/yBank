@@ -12,7 +12,7 @@ This is a simple Vue.Js front-end that consumes a Laravel API Based back end. It
 To run the project locally one has to:
 1. Clone the project.
 2. cd into the web directory then run the relevant command suitable to the intended result :
-## :warning:
+## Note :warning:
 The laravel development server has to be up and running for the web-front end to function from end to end
 
 ```bash
