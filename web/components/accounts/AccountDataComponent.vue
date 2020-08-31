@@ -18,8 +18,14 @@
           <div class="text-center" v-if="transactionLimit">
             Account Balance Exceeded Try Again.
           </div>
+          <div class="text-center" v-if="transactionSuccess">
+            Transaction successful
+          </div>
         </b-card-text>
-        <b-button size="sm" variant="success" @click="show = !show, transactionLimit = false"
+        <b-button
+          size="sm"
+          variant="success"
+          @click="(show = !show), (transactionLimit = false), (transactionSuccess = false)"
           >New payment</b-button
         >
 
@@ -88,22 +94,24 @@ export default Vue.extend({
     return {
       show: false,
       payment: {},
-
+      params: {},
       account: [],
       transactions: [],
       transactionLimit: false,
+      transactionSuccess: false,
       loading: true
     };
   },
   mounted() {
+    //Set Global var to this to that
     const that = this;
-
+  
+    //Get Account Details
     axios
       .get(`http://localhost:8000/api/accounts/${that.$route.params.id}`)
       .then(function(response) {
         if (!response.data.length) {
           window.location.href = "/";
-          // window.location = "/";
         } else {
           that.account = response.data[0];
 
@@ -195,6 +203,7 @@ export default Vue.extend({
             }
 
             that.transactions = transactions;
+            that.transactionSuccess = true
           });
       }, 1000);
     }
