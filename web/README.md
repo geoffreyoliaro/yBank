@@ -1,6 +1,6 @@
 # ybank
 
-> ybank - frontend
+>The ybank - frontend
 
 ## Contributors::busts_in_silhouette:
 Geoffrey Oliaro
