@@ -15,6 +15,7 @@ To run the project locally one has to:
 ## Note :warning:
 The laravel development server has to be up and running for the web-front end to function from end to end
 
+
 ```bash
 # install dependencies
 
@@ -29,6 +30,13 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# run jest unit tests
+$ npm run test
+
 ```
+This is the result after running npm install then running npm run dev
+
+![yBankWeb](https://user-images.githubusercontent.com/36531897/91686238-6e1f7100-eb65-11ea-9076-3e55859950ca.PNG)
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
