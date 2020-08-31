@@ -23,7 +23,6 @@ class AccountsController extends Controller
             'name'=>'required|string|unique:accounts',
             'balance'=>'required'
         ]);
-
         
         $account = new Account;
         $account->name = $request->input('name');
@@ -31,15 +30,7 @@ class AccountsController extends Controller
         $account->currency = 'usd';
         $account->save();  
 
-        return view('/account_details')->with('account', $account);
-        
-        // DB::table('accounts')
-        //     ->where('name', $request->name)
-        //     ->get()
-
-
-        
-        // return response()->json($account);
+        return view('/account_details')->with('account', $account);        
         
     }
 }

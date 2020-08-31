@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//Web Routes
 Route::get('/', 'accounts\AccountsController@index');
 Route::get('/about', 'accounts\AccountsController@about');
 Route::post('/accounts', 'accounts\AccountsController@createAccount');

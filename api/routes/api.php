@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/accounts', 'api\accounts\AccountsController@create');
+//Accounts api and transaction routes
 Route::get('accounts/{id}', 'api\accounts\AccountsController@getAccountById');
 Route::get('accounts/{id}/transactions', 'api\accounts\AccountsController@getTransactionsById');
 Route::post('accounts/{id}/transactions', 'api\accounts\AccountsController@commitTransaction');
