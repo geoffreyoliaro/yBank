@@ -8,9 +8,6 @@ Geoffrey Oliaro
 ## Description
 This is a simple Laravel Back-end that generates the relevant restfull APIs for the yBank front end. To generate the APIs the application uses passport a composer package. The yBank Back end hosts the registration interface for the yBank front end
 
-![yBankAPi](https://user-images.githubusercontent.com/36531897/91689665-4207ee00-eb6d-11ea-8b8e-5f2be10c91e1.PNG)
-
-
 ## Build Setup
 To run the project locally one has to:
 1. Clone the project (git clone).
@@ -46,4 +43,5 @@ $ php artisan test
 ```
 
 ## Build Result
+On successful build this is the result on port 8000
 ![yBankAPi](https://user-images.githubusercontent.com/36531897/91689665-4207ee00-eb6d-11ea-8b8e-5f2be10c91e1.PNG)
