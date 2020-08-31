@@ -30,6 +30,10 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# run jest unit tests
+$ npm run test
+
 ```
 This is the result after running npm install then running npm run dev
 
