@@ -18,15 +18,10 @@ To run the project locally one has to:
 your .env file to suit your local environment
 6. Do not forget to reference
 the db name, db password and db username in the .env file
-
-7.now run the command ```bash $ composer install ``` 
-
-8.now run the command ```bash $ npm install ``` 
-
-9.now run the command ```bash $ php artisan key:generate ``` 
-
+7. now run the command ```bash $ composer install ``` 
+8. now run the command ```bash $ npm install ``` 
+9. now run the command ```bash $ php artisan key:generate ``` 
 10. now run the command ```bash $ php artisan migrate ``` 
-
 11. now run the command ```bash $ php artisan serve ``` 
 
 ```bash
