@@ -16,7 +16,6 @@ To run the project locally one has to:
 4. create a new .env file in the root api directory
 5. Using .env.example as a point of reference setup your .env file to suit your local environment
 6. Do not forget to reference the db name, db password and db username in the .env file
-![example env](https://user-images.githubusercontent.com/36531897/91690926-6a90e780-eb6f-11ea-84b9-020fa3a10cea.PNG)
 7.now run the command ```bash $ composer install ``` 
 8.now run the command ```bash $ npm install ``` 
 9.now run the command ```bash $ php artisan key:generate ``` 
