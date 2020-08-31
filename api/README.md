@@ -14,8 +14,10 @@ To run the project locally one has to:
 2. cd into the api directory
 3. create a new empty mysql Database
 4. create a new .env file in the root api directory
-5. Using .env.example as a point of reference setup your .env file to suit your local environment
-6. Do not forget to reference the db name, db password and db username in the .env file
+5. Using .env.example as a point of reference setup 
+your .env file to suit your local environment
+6. Do not forget to reference
+the db name, db password and db username in the .env file
 7.now run the command ```bash $ composer install ``` 
 8.now run the command ```bash $ npm install ``` 
 9.now run the command ```bash $ php artisan key:generate ``` 
