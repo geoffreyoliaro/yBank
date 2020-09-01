@@ -3,14 +3,16 @@ import AccountDataComponent from "@/components/accounts/AccountDataComponent.vue
 
 describe("AccountDataComponent", () => {
   test("is a Vue instance ", () => {
+    const id = 1;
     const wrapper = shallowMount(AccountDataComponent, {
+      
       propsData: {
         AccountDataComponent: {
           show: false,
           payment: {},
           mocks: {
             $route: {
-              params: {  }
+              params: {id}
             }
           },
           account: [],
@@ -24,16 +26,9 @@ describe("AccountDataComponent", () => {
   });
 });
 
-const $axios = {
-    get: () => {
-      return Promise.resolve({ data: [{ char_id: 1, name: "123" }] });
-    }
-  };
-  
-  describe("AccountDataComponent", () => {
-    let wrapper;
-    it("renders", () => {
-      wrapper = shallowMount(AccountDataComponent, { mocks: { $axios } });
-      expect(wrapper.exists()).toBe(true);
-    });
-  })  
+describe("AccountDataComponent",() =>{
+  test("New Payment button shows and hides the payment button", () =>{
+    const wrapper = shallowMount(AccountDataComponent)
+    expect(wrapper.vm.show).toBe(false)
+  })
+})
