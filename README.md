@@ -14,7 +14,7 @@ The front end runs on vueJs and consumes the Laravel backend restful APIs
 Since this project is composed of two applications running synchronously one should install both the two applications to be able to 
 ## Note :warning:
 The various guides on how to get started are written also in each of the relevant directories for ease of use
-see a successful project build
+to a successful project build
 # The back end (api)
 
 To run the project locally one has to:
