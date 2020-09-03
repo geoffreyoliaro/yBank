@@ -203,8 +203,12 @@ export default Vue.extend({
             }
 
             that.transactions = transactions;
-            that.transactionSuccess = true
-          });
+            
+          })
+          .then(()=>{
+            if(that.transactionLimit == true)
+            that.transactionSuccess = false;
+          })
       }, 1000);
     }
   }
