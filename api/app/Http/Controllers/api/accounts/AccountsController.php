@@ -44,6 +44,9 @@ class AccountsController extends Controller
         if($amount > $balance){
             return response()->json(["message"=> "Insufficient Account Balance"],400);
         }    
+        if($to === $id){
+            return response()->json(["message"=> "Cannot send money to yourself"],200);
+        }
         
     
         $transaction = DB::table('accounts')

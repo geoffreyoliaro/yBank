@@ -18,6 +18,9 @@
           <div class="text-center" v-if="transactionLimit">
             Account Balance Exceeded Try Again.
           </div>
+           <div class="text-center" v-if="transactionSelf">
+            Cannot send money to yourself
+          </div>
           <div class="text-center" v-if="transactionSuccess">
             Transaction successful
           </div>
@@ -25,7 +28,11 @@
         <b-button
           size="sm"
           variant="success"
-          @click="(show = !show), (transactionLimit = false), (transactionSuccess = false)"
+          @click="
+            (show = !show),
+              (transactionLimit = false),
+              (transactionSuccess = false)
+          "
           >New payment</b-button
         >
 
@@ -98,6 +105,7 @@ export default Vue.extend({
       account: [],
       transactions: [],
       transactionLimit: false,
+      transactionSelf: false,
       transactionSuccess: false,
       loading: true
     };
@@ -105,7 +113,7 @@ export default Vue.extend({
   mounted() {
     //Set Global var to this to that
     const that = this;
-  
+
     //Get Account Details
     axios
       .get(`http://localhost:8000/api/accounts/${that.$route.params.id}`)
@@ -161,7 +169,15 @@ export default Vue.extend({
 
           that.payment
         )
-        .catch(() => {
+        .then((res)=>{
+          if(res.data.message){
+            console.log(res.data.message)
+            that.transactionSelf = true;
+          }
+        })
+        .catch((res) => {
+
+          console.log(res);
           that.transactionLimit = true;
         });
 
@@ -203,11 +219,12 @@ export default Vue.extend({
             }
 
             that.transactions = transactions;
-            
           })
-          .then(()=>{
-            if(that.transactionLimit == true)
-            that.transactionSuccess = false;
+          .then(() => {
+            if (that.transactionLimit == true) that.transactionSuccess = false;
+          })
+          .catch((err)=>{
+            console.log(err)
           })
       }, 1000);
     }
